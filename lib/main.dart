@@ -14,21 +14,22 @@ class NewsApp extends StatelessWidget {
 }
 
 class NewsListScreen extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('ニュースの記事一覧'),
       ),
-      body: ListView.builder(
-        itemCount: newsList.length,
-        itemBuilder: (context, index) {
-          String title = newsList[index]['title'] ?? ''; 
-          return ListTile(
-            title: Text(title),
-          );
-        },
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: newsList.map((item) {
+            String title = item['title'] ?? '';
+            return ListTile(
+              title: Center(child: Text(title)), 
+            );
+          }).toList(),
+        ),
       ),
     );
   }
@@ -39,3 +40,4 @@ List<Map<String, String>> newsList = [
   {'title': 'ニュースの記事2'},
   {'title': 'ニュースの記事3'},
 ];
+
