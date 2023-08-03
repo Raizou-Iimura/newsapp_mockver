@@ -26,7 +26,12 @@ class NewsListScreen extends StatelessWidget {
           children: newsList.map((item) {
             String title = item['title'] ?? '';
             return ListTile(
-              title: Center(child: Text(title)), 
+              title: Center(
+                child: Text(
+                  title,
+                  style: TextStyle(fontSize: 60), 
+                ),
+              ),
             );
           }).toList(),
         ),
@@ -40,4 +45,3 @@ List<Map<String, String>> newsList = [
   {'title': 'ニュースの記事2'},
   {'title': 'ニュースの記事3'},
 ];
-
